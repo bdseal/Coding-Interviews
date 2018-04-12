@@ -47,12 +47,12 @@ public:
 public:
     int calcCost(int A, int B)
     {
-        int num=A^B;
+        int n=A^B;
         int count=0;
-        while(num)
+        while(n)
         {
             count++;
-            num=num&(num-1);
+            n=n&(n-1);
         }
         return count++;
     }
