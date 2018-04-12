@@ -1,5 +1,5 @@
 //输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
-class Solution {
+/*class Solution {
 public:
      int  NumberOf1(int n) {
          int count=0;
@@ -8,11 +8,30 @@ public:
          {
             if(n & flag)
                  count++;
-             flag=flag<<1; 
+             flag=flag<<1;
          }
-          return count;   
+          return count;  
+     }
+};*/
+class Solution {
+public:
+     int  NumberOf1(int n) {
+         int count=0;
+         if (n<0)
+         {
+             n=n&0x7fffffff;//负数则考虑负数向左移位的话最高位补1， 因此将最高位的符号位1变成0，也就是n & 0x7FFFFFFF，
+ 
+             count++;//唯一差别就是最高位由1变成0，因为少了个1，所以count加1。
+         }
+         while(n)
+         {
+             if(n&1) count++;//更优雅的写法为count+=n&1
+             n=n>>1;
+         }
+          return count;  
      }
 };
+
 
 //程序员面试金典有类似的题目
 /*编写一个函数，确定需要改变几个位，才能将整数A转变成整数B。
