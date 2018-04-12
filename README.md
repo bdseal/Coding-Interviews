@@ -1,1 +1,1 @@
-Solutions of "Coding interviews".
+Solutions of "Coding interviews" and "Cracking the Coding Interview".
